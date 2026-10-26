@@ -1,5 +1,6 @@
-package com.mycompany.shotmasterfxml;
+package com.mycompany.shotmasterfxml.Controllers;
 
+import com.mycompany.shotmasterfxml.App;
 import com.mycompany.shotmasterfxml.App;
 import java.io.IOException;
 import javafx.event.ActionEvent;
@@ -7,7 +8,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
-public class SecondaryController {
+public class GameScreenController {
 
     @FXML
     private Button secondaryButton;

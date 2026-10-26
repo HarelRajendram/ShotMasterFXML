@@ -1,5 +1,6 @@
-package com.mycompany.shotmasterfxml;
+package com.mycompany.shotmasterfxml.Controllers;
 
+import com.mycompany.shotmasterfxml.App;
 import com.mycompany.shotmasterfxml.App;
 import java.io.IOException;
 import javafx.event.ActionEvent;
@@ -8,7 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 
-public class PrimaryController {
+public class StartScreenController {
 
     @FXML
     private VBox titleVbox;

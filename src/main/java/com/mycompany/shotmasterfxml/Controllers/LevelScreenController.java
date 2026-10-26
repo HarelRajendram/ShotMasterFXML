@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
-package com.mycompany.shotmasterfxml;
+package com.mycompany.shotmasterfxml.Controllers;
 
+import com.mycompany.shotmasterfxml.App;
 import com.mycompany.shotmasterfxml.App;
 import java.io.IOException;
 import java.net.URL;
@@ -44,14 +45,19 @@ public class LevelScreenController implements Initializable {
         
         for (Button button : buttons) {
             button.setOnAction(e -> {
-             
-            try {
-                String fileName = button.getText().toLowerCase().replace(" ", "");
-                App.setRoot(fileName);
-            
-            } catch (IOException ex) {
-                ex.printStackTrace();
+             try {
+                App.setRoot("GameScreen");
+                
+             } catch (IOException ex) {
+                    ex.printStackTrace();
                 }
+//            try {
+//                String fileName = button.getText().toLowerCase().replace(" ", "");
+//                App.setRoot("GameScreen");
+//            
+//            } catch (IOException ex) {
+//                ex.printStackTrace();
+//                }
 
             });
             

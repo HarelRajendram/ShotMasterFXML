@@ -1,19 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" prefHeight="102.0" prefWidth="198.0" spacing="20.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.shotmasterfxml.SecondaryController">
-    <children>
-        <Label fx:id="label1" text="Secondary View" />
-      <Button fx:id="helloWorldButton" mnemonicParsing="false" onAction="#onButtonClicked" text="Hello World" />
-      <Label fx:id="myLabel" />
-      <Button fx:id="helloWorldButton1" mnemonicParsing="false" onAction="#onButtonClicked1" text="Hello World" />
-        <Button fx:id="secondaryButton" onAction="#switchToPrimary" text="Switch to Primary View" />
-    </children>
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-    </padding>
-</VBox>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.shotmasterfxml.Controllers.GameScreenController">
+   <bottom>
+      <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox prefHeight="100.0" prefWidth="65.0" spacing="15.0">
+               <children>
+                  <Label prefHeight="0.0" prefWidth="47.0" text="Angle :" />
+                  <Label prefHeight="18.0" prefWidth="68.0" text="Velocity :" />
+               </children>
+            </VBox>
+            <VBox layoutX="318.0" layoutY="10.0" prefHeight="100.0" prefWidth="177.0">
+               <children>
+                  <Slider fx:id="angleSlider" />
+                  <Slider fx:id="velocitySlider" prefHeight="41.0" prefWidth="177.0" />
+               </children>
+            </VBox>
+            <VBox layoutX="80.0" layoutY="10.0" prefHeight="58.0" prefWidth="75.0">
+               <children>
+                  <TextField fx:id="velocityTextField" prefHeight="0.0" prefWidth="75.0" />
+                  <TextField fx:id="angleTextField" prefHeight="16.0" prefWidth="75.0" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </bottom>
+   <right>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+   </right>
+</BorderPane>
