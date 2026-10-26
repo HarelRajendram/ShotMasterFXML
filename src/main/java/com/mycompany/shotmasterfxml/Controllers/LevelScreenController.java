@@ -49,11 +49,11 @@ public class LevelScreenController implements Initializable {
             button.setOnAction(e -> {
              try {
                 
-                 FXMLLoader loader = App.setRoot("GameScreen");
+                FXMLLoader loader = App.setRoot("GameScreen");
                 
                 GameScreenController gameController = loader.getController();
                 
-                String levelFile = button.getText().toLowerCase().replace(" ", "") + "fxml";
+                String levelFile = "/com/mycompany/shotmasterfxml/" + button.getText().toLowerCase().replace(" ", "") + ".fxml";
                 
                 gameController.loadSubScene(levelFile);
                 
