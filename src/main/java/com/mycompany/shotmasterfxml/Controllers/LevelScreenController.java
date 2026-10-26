@@ -27,10 +27,11 @@ public class LevelScreenController implements Initializable {
 
     @FXML
     private GridPane buttonGrid;
+    @FXML
+    private Button backButton;
     
     ArrayList<Button> buttons = new ArrayList();
-          
-
+    
     /**
      * Initializes the level controller class.
      * @param url
@@ -66,5 +67,10 @@ public class LevelScreenController implements Initializable {
             
         }
         
+    }
+
+    @FXML
+        private void onBackButtonPressed(ActionEvent event) throws IOException {
+        App.setRoot("StartScreen");
     }
 }

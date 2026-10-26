@@ -27,8 +27,8 @@
             </VBox>
             <VBox layoutX="80.0" layoutY="10.0" prefHeight="89.0" prefWidth="75.0" translateX="-45.0">
                <children>
-                  <TextField fx:id="velocityTextField" prefHeight="29.0" prefWidth="75.0" translateY="30.0" />
-                  <TextField fx:id="angleTextField" prefHeight="32.0" prefWidth="75.0" translateY="28.0" />
+                  <TextField fx:id="angleTextField" prefHeight="29.0" prefWidth="75.0" translateY="30.0" />
+                  <TextField fx:id="velocityTextField" prefHeight="32.0" prefWidth="75.0" translateY="28.0" />
                </children>
             </VBox>
             <Button fx:id="backButton" mnemonicParsing="false" onAction="#onBackButtonPressed" text="BACK" />

@@ -36,7 +36,25 @@ public class GameScreenController {
     @FXML
     private Button backButton;
 
+    private double angle = 0;
+    private double velocity = 0;
     
+    public void initialize() {
+        
+        angleSlider.valueProperty().addListener((obs, oldValue, newValue) -> {
+            angle = newValue.intValue();
+        });
+        
+        velocitySlider.valueProperty().addListener((obs, oldValue, newValue) -> {
+            velocity = newValue.intValue();
+        });
+        
+        angleTextField.textProperty().bind(angleSlider.valueProperty()
+            .asString("%.2f"));
+        
+        velocityTextField.textProperty().bind(velocitySlider.valueProperty()
+            .asString("%.2f"));
+    }
     
     public void loadSubScene(String fxmlPath) {
         try {
