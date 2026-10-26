@@ -10,4 +10,10 @@ package com.mycompany.shotmasterfxml;
  */
 public class Physics {
     
+    private double angle;
+    private double velocity;
+    
+    
+    
+    
 }

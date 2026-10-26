@@ -1,5 +1,6 @@
 package com.mycompany.shotmasterfxml;
 
+import com.mycompany.shotmasterfxml.App;
 import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -24,7 +25,7 @@ public class PrimaryController {
 
     @FXML
     private void onPlayButtonPressed(ActionEvent event) throws IOException {
-        App.setRoot("GameScreen");
+        App.setRoot("LevelScreen");
         
     }
     
