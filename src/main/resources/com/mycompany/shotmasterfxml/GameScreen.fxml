@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.TextField?>
@@ -7,33 +9,44 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.shotmasterfxml.Controllers.GameScreenController">
+<BorderPane fx:id="mainContainer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="725.0" prefWidth="1138.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.shotmasterfxml.Controllers.GameScreenController">
    <bottom>
-      <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0" BorderPane.alignment="CENTER">
+      <HBox prefHeight="130.0" prefWidth="200.0" spacing="5.0" BorderPane.alignment="CENTER">
          <children>
-            <VBox prefHeight="100.0" prefWidth="65.0" spacing="15.0">
+            <VBox prefHeight="130.0" prefWidth="153.0" spacing="15.0">
                <children>
-                  <Label prefHeight="0.0" prefWidth="47.0" text="Angle :" />
-                  <Label prefHeight="18.0" prefWidth="68.0" text="Velocity :" />
+                  <Label prefHeight="23.0" prefWidth="192.0" text="Angle :" translateX="10.0" translateY="30.0" />
+                  <Label prefHeight="18.0" prefWidth="68.0" text="Velocity :" translateX="10.0" translateY="30.0" />
                </children>
             </VBox>
             <VBox layoutX="318.0" layoutY="10.0" prefHeight="100.0" prefWidth="177.0">
                <children>
-                  <Slider fx:id="angleSlider" />
-                  <Slider fx:id="velocitySlider" prefHeight="41.0" prefWidth="177.0" />
+                  <Slider fx:id="angleSlider" onDragDetected="#onAngleDrag" prefHeight="22.0" prefWidth="177.0" translateX="-50.0" translateY="33.0" />
+                  <Slider fx:id="velocitySlider" onDragDetected="#onVelocityDrag" prefHeight="22.0" prefWidth="177.0" translateX="-50.0" translateY="45.0" />
                </children>
             </VBox>
-            <VBox layoutX="80.0" layoutY="10.0" prefHeight="58.0" prefWidth="75.0">
+            <VBox layoutX="80.0" layoutY="10.0" prefHeight="89.0" prefWidth="75.0" translateX="-45.0">
                <children>
-                  <TextField fx:id="velocityTextField" prefHeight="0.0" prefWidth="75.0" />
-                  <TextField fx:id="angleTextField" prefHeight="16.0" prefWidth="75.0" />
+                  <TextField fx:id="velocityTextField" prefHeight="29.0" prefWidth="75.0" translateY="30.0" />
+                  <TextField fx:id="angleTextField" prefHeight="32.0" prefWidth="75.0" translateY="28.0" />
                </children>
             </VBox>
+            <Button fx:id="startButton" mnemonicParsing="false" onAction="#onStartButtonPressed" scaleX="2.0" scaleY="2.0" text="START" translateX="600.0" translateY="50.0">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Button>
          </children>
       </HBox>
    </bottom>
    <right>
-      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+      <VBox fx:id="goalStats" prefHeight="200.0" prefWidth="150.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" scaleX="2.0" scaleY="2.0" text="Stats" translateX="30.0" translateY="20.0" />
+            <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" text="Distance" translateY="40.0" />
+            <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" text="Height" translateY="50.0" />
+            <Label alignment="CENTER" layoutX="10.0" layoutY="28.0" text="Goal" translateY="60.0" />
+         </children>
+      </VBox>
    </right>
 </BorderPane>

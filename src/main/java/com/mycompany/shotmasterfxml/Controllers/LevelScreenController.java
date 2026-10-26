@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -24,7 +25,8 @@ import javafx.scene.layout.GridPane;
  */
 public class LevelScreenController implements Initializable {
 
-    GridPane buttonGrid = new GridPane();
+    @FXML
+    private GridPane buttonGrid;
     
     ArrayList<Button> buttons = new ArrayList();
           
@@ -46,19 +48,19 @@ public class LevelScreenController implements Initializable {
         for (Button button : buttons) {
             button.setOnAction(e -> {
              try {
-                App.setRoot("GameScreen");
+                
+                 FXMLLoader loader = App.setRoot("GameScreen");
+                
+                GameScreenController gameController = loader.getController();
+                
+                String levelFile = button.getText().toLowerCase().replace(" ", "") + "fxml";
+                
+                gameController.loadSubScene(levelFile);
                 
              } catch (IOException ex) {
                     ex.printStackTrace();
                 }
-//            try {
-//                String fileName = button.getText().toLowerCase().replace(" ", "");
-//                App.setRoot("GameScreen");
-//            
-//            } catch (IOException ex) {
-//                ex.printStackTrace();
-//                }
-
+            
             });
             
         }

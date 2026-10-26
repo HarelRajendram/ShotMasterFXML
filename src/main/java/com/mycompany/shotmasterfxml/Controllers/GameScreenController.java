@@ -5,41 +5,75 @@ import com.mycompany.shotmasterfxml.App;
 import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
+import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 
 public class GameScreenController {
 
     @FXML
-    private Button secondaryButton;
+    private Slider angleSlider;
     @FXML
-    private Button helloWorldButton;
+    private Slider velocitySlider;
     @FXML
-    private Label myLabel;
+    private TextField velocityTextField;
     @FXML
-    private Label label1;
+    private TextField angleTextField;
     @FXML
-    private Button helloWorldButton1;
+    private Button startButton;
+    @FXML
+    private VBox goalStats;
+    @FXML
+    private BorderPane mainContainer;
 
+    
     @FXML
-    private void switchToPrimary() throws IOException {
-        App.setRoot("StartScreen");
-    }
-
-    @FXML
-    private void onButtonClicked(ActionEvent event) {
-        
-      myLabel.setText("Hello guys");
-        
-        
+    private void onAngleDrag(MouseEvent event) {
         
     }
 
     @FXML
-    private void onButtonClicked1(ActionEvent event) {
-        
-        label1.setText("Hello World");
+    private void onVelocityDrag(MouseEvent event) {
     }
+
+    @FXML
+    private void onStartButtonPressed(ActionEvent event) {
+        
+    }
+    
+    public void loadSubScene(String fxmlPath) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
+            
+            Parent subView = loader.load();
+            
+            mainContainer.setCenter(subView); 
+            
+        } catch (IOException e) {
+            System.err.println("Error loading sub-FXML file: " + fxmlPath);
+            e.printStackTrace();
+        }
+    }
+
+    
     
     
 }
+
+    
+        
+        
+        
+    
+
+    
+
+    
+    
+    

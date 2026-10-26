@@ -4,10 +4,17 @@
  */
 package com.mycompany.shotmasterfxml;
 
+import javafx.scene.layout.VBox;
+
 /**
  *
  * @author macos
  */
 public class Score {
+    
+    int goalCount = 0;
+    VBox goalStats = new VBox();
+    
+   
     
 }
