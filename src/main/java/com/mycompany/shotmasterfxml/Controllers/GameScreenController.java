@@ -2,6 +2,7 @@ package com.mycompany.shotmasterfxml.Controllers;
 
 import com.mycompany.shotmasterfxml.App;
 import com.mycompany.shotmasterfxml.App;
+import static com.mycompany.shotmasterfxml.Physics.getTotalDisplacement;
 import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -36,8 +37,8 @@ public class GameScreenController {
     @FXML
     private Button backButton;
 
-    private double angle = 0;
-    private double velocity = 0;
+    public double angle = 0;
+    public double velocity = 0;
     
     public void initialize() {
         
@@ -81,6 +82,7 @@ public class GameScreenController {
 
     @FXML
     private void onStartButtonPressed(ActionEvent event) {
+        distanceLabel.setText(String.valueOf(getTotalDisplacement()));
     }
 
     @FXML

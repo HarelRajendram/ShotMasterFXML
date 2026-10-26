@@ -15,12 +15,7 @@ public class Score {
     int goalCount = 0;
 
     
-    public void goalScored() {
-        
-        double distanceTravelled = Physics.calculateDisplacement(5, 10, 10);
-        
-        
-    }
+    
    
     
 }
