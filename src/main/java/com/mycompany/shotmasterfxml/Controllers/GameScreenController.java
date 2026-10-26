@@ -31,6 +31,10 @@ public class GameScreenController {
     private Button startButton;
     @FXML
     private VBox goalStats;
+    @FXML
+    private Label distanceLabel;
+    @FXML
+    private Button backButton;
 
     
     
@@ -47,6 +51,7 @@ public class GameScreenController {
             e.printStackTrace();
         }
     }
+    
 
     @FXML
     private void onAngleDrag(MouseEvent event) {
@@ -58,5 +63,11 @@ public class GameScreenController {
 
     @FXML
     private void onStartButtonPressed(ActionEvent event) {
+    }
+
+    @FXML
+    private void onBackButtonPressed(ActionEvent event) throws IOException {
+        
+        App.setRoot("LevelScreen");
     }
 }

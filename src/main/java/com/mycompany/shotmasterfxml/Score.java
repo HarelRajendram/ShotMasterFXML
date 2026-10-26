@@ -13,8 +13,14 @@ import javafx.scene.layout.VBox;
 public class Score {
     
     int goalCount = 0;
-    VBox goalStats = new VBox();
+
     
+    public void goalScored() {
+        
+        double distanceTravelled = Physics.calculateDisplacement(5, 10, 10);
+        
+        
+    }
    
     
 }

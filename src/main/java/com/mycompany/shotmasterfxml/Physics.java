@@ -10,10 +10,17 @@ package com.mycompany.shotmasterfxml;
  */
 public class Physics {
     
-    private double angle;
-    private double velocity;
     
+    public static double calculateDisplacement(double initialVelocity, double time, double acceleration) {
+        
+        return (initialVelocity * time) + ((acceleration * Math.pow(time, 2)) / 2);
+        
+        
+    }
     
-    
+//    public double calculateHeight() {}
+//    
+//    
+//
     
 }

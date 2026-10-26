@@ -53,7 +53,8 @@ public class LevelScreenController implements Initializable {
                 
                 GameScreenController gameController = loader.getController();
                 
-                String levelFile = "/com/mycompany/shotmasterfxml/" + button.getText().toLowerCase().replace(" ", "") + ".fxml";
+                String levelFile = "/com/mycompany/shotmasterfxml/" + 
+                        button.getText().toLowerCase().replace(" ", "") + ".fxml";
                 
                 gameController.loadSubScene(levelFile);
                 
