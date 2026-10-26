@@ -18,6 +18,8 @@ import javafx.scene.layout.VBox;
 public class GameScreenController {
 
     @FXML
+    private BorderPane mainContainer;
+    @FXML
     private Slider angleSlider;
     @FXML
     private Slider velocitySlider;
@@ -29,23 +31,8 @@ public class GameScreenController {
     private Button startButton;
     @FXML
     private VBox goalStats;
-    @FXML
-    private BorderPane mainContainer;
 
     
-    @FXML
-    private void onAngleDrag(MouseEvent event) {
-        
-    }
-
-    @FXML
-    private void onVelocityDrag(MouseEvent event) {
-    }
-
-    @FXML
-    private void onStartButtonPressed(ActionEvent event) {
-        
-    }
     
     public void loadSubScene(String fxmlPath) {
         try {
@@ -61,19 +48,15 @@ public class GameScreenController {
         }
     }
 
-    
-    
-    
+    @FXML
+    private void onAngleDrag(MouseEvent event) {
+    }
+
+    @FXML
+    private void onVelocityDrag(MouseEvent event) {
+    }
+
+    @FXML
+    private void onStartButtonPressed(ActionEvent event) {
+    }
 }
-
-    
-        
-        
-        
-    
-
-    
-
-    
-    
-    
