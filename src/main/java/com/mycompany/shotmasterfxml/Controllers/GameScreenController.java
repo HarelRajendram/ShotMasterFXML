@@ -12,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -47,14 +48,17 @@ public class GameScreenController {
     @FXML
     private Button backButton;
     
-    @FXML
-    private Circle ballSphere;
 
     @FXML
     private AnchorPane gameField;
     
     @FXML
     private AnchorPane level1;
+    
+    @FXML
+    private ImageView ballSphere;
+    @FXML
+    private ImageView ballSphere1;
     
     private double angle = 0;
     private double velocity = 0;
@@ -85,7 +89,7 @@ public class GameScreenController {
             
             mainContainer.setCenter(subView); 
             
-            ballSphere = (Circle) subView.lookup("#ballSphere");        
+            ballSphere = (ImageView) subView.lookup("#ballSphere");        
         } catch (IOException e) {
             System.err.println("Error loading sub-FXML file: " + fxmlPath);
             e.printStackTrace();
