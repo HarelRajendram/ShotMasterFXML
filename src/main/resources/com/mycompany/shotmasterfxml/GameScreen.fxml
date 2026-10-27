@@ -1,77 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
+<?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="mainContainer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="725.0" prefWidth="1138.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.shotmasterfxml.Controllers.GameScreenController">
-   <bottom>
-      <HBox prefHeight="130.0" prefWidth="200.0" spacing="5.0" BorderPane.alignment="CENTER">
-         <children>
-            <VBox prefHeight="130.0" prefWidth="153.0" spacing="15.0">
-               <children>
-                  <Label prefHeight="23.0" prefWidth="192.0" text="Angle :" translateX="10.0" translateY="30.0" />
-                  <Label prefHeight="18.0" prefWidth="68.0" text="Velocity :" translateX="10.0" translateY="30.0" />
-               </children>
-            </VBox>
-            <VBox layoutX="318.0" layoutY="10.0" prefHeight="100.0" prefWidth="177.0">
-               <children>
-                  <Slider fx:id="angleSlider" onDragDetected="#onAngleDrag" prefHeight="22.0" prefWidth="177.0" translateX="-50.0" translateY="33.0" />
-                  <Slider fx:id="velocitySlider" onDragDetected="#onVelocityDrag" prefHeight="22.0" prefWidth="177.0" translateX="-50.0" translateY="45.0" />
-               </children>
-            </VBox>
-            <VBox layoutX="80.0" layoutY="10.0" prefHeight="89.0" prefWidth="75.0" translateX="-45.0">
-               <children>
-                  <TextField fx:id="angleTextField" prefHeight="29.0" prefWidth="75.0" translateY="30.0" />
-                  <TextField fx:id="velocityTextField" prefHeight="32.0" prefWidth="75.0" translateY="28.0" />
-               </children>
-            </VBox>
-            <Button fx:id="backButton" mnemonicParsing="false" onAction="#onBackButtonPressed" text="BACK" />
-            <Button fx:id="startButton" mnemonicParsing="false" onAction="#onStartButtonPressed" scaleX="2.0" scaleY="2.0" text="START" translateX="600.0" translateY="50.0">
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-            </Button>
-         </children>
-      </HBox>
-   </bottom>
-   <right>
-      <VBox fx:id="goalStats" prefHeight="200.0" prefWidth="150.0" BorderPane.alignment="CENTER">
-         <children>
-            <Label alignment="CENTER" scaleX="2.0" scaleY="2.0" text="Stats" translateX="30.0" translateY="20.0" />
-            <GridPane translateY="50.0">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <Label text="Distance :" />
-                  <Label text="Time :" GridPane.rowIndex="1" />
-                  <Label GridPane.rowIndex="2" />
-                  <Label text="height :" GridPane.rowIndex="2" />
-                  <Label text="Goal :" GridPane.rowIndex="3" />
-                  <Label fx:id="distanceLabel" GridPane.columnIndex="1" />
-                  <Label fx:id="timeLabel" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Label fx:id="heightLabel" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <Label fx:id="goalLabel" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-               </children>
-            </GridPane>
-         </children>
-      </VBox>
-   </right>
+<BorderPane fx:id="mainContainer" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.shotmasterfxml.Controllers.GameScreenController">
+    <stylesheets>
+        <URL value="@styles/levelscreen.css" />
+    </stylesheets>
+    
+    <center>
+        <AnchorPane fx:id="gameField" prefHeight="400.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+            <children>
+                <Rectangle arcHeight="5.0" arcWidth="5.0" height="146.0" layoutX="429.0" layoutY="152.0" opacity="0.22" stroke="BLACK" strokeType="INSIDE" width="157.0" />
+                
+                <Circle fx:id="ballSphere" layoutX="67.0" layoutY="268.0" radius="15.0" fill="RED" />
+                
+                <Label layoutX="462.0" layoutY="88.0" prefHeight="50.0" prefWidth="124.0" text="GOAL">
+                    <font>
+                        <Font name="Noteworthy Bold" size="29.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+    </center>
+
+    <bottom>
+        <AnchorPane prefHeight="100.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label layoutX="20.0" layoutY="20.0" text="Angle :" />
+                <Slider fx:id="angleSlider" layoutX="70.0" layoutY="21.0" max="90.0" />
+                <TextField fx:id="angleTextField" layoutX="220.0" layoutY="16.0" prefHeight="26.0" prefWidth="60.0" />
+
+                <Label layoutX="20.0" layoutY="60.0" text="Velocity :" />
+                <Slider fx:id="velocitySlider" layoutX="70.0" layoutY="61.0" max="50.0" />
+                <TextField fx:id="velocityTextField" layoutX="220.0" layoutY="56.0" prefHeight="26.0" prefWidth="60.0" />
+
+                <Button fx:id="startButton" layoutX="500.0" layoutY="30.0" mnemonicParsing="false" onAction="#onStartButtonPressed" text="START" />
+                <Button fx:id="backButton" layoutX="320.0" layoutY="30.0" mnemonicParsing="false" onAction="#onBackButtonPressed" text="BACK" />
+            </children>
+        </AnchorPane>
+    </bottom>
+
+    <right>
+        <VBox fx:id="goalStats" alignment="TOP_RIGHT" prefHeight="400.0" prefWidth="150.0" spacing="10.0" style="-fx-padding: 20;" BorderPane.alignment="CENTER">
+            <children>
+                <Label style="-fx-font-weight: bold; -fx-font-size: 16;" text="Stats" />
+                <Label text="Distance :" />
+                <Label fx:id="distanceLabel" text="0.00" />
+                <Label text="Time :" />
+                <Label fx:id="timeLabel" text="0.00" />
+                <Label text="Height :" />
+                <Label fx:id="heightLabel" text="0.00" />
+                <Label text="Goal :" />
+                <Label fx:id="goalLabel" text="-" />
+            </children>
+        </VBox>
+    </right>
 </BorderPane>

@@ -32,6 +32,11 @@ public class App extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
     }
+    public static javafx.fxml.FXMLLoader setRootAndGetLoader(String fxml) throws java.io.IOException {
+    javafx.fxml.FXMLLoader fxmlLoader = new javafx.fxml.FXMLLoader(App.class.getResource(fxml + ".fxml"));
+    scene.setRoot(fxmlLoader.load());
+    return fxmlLoader;
+}
 
     public static void main(String[] args) {
         launch();
