@@ -13,10 +13,6 @@
 <?import javafx.scene.text.Font?>
 
 <BorderPane fx:id="mainContainer" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.shotmasterfxml.Controllers.GameScreenController">
-    
-    <center>
-                <fx:include fx:id="level1" source="level1.fxml"/>
-    </center>
 
     <bottom>
         <AnchorPane prefHeight="100.0" prefWidth="800.0" BorderPane.alignment="CENTER">
