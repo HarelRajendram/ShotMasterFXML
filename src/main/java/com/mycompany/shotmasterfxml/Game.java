@@ -10,4 +10,7 @@ package com.mycompany.shotmasterfxml;
  */
 public class Game {
     
+    
+    
+    
 }

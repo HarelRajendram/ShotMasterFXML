@@ -27,10 +27,11 @@ public class LevelScreenController implements Initializable {
 
     @FXML
     private GridPane buttonGrid;
+    @FXML
+    private Button backButton;
     
     ArrayList<Button> buttons = new ArrayList();
-          
-
+    
     /**
      * Initializes the level controller class.
      * @param url
@@ -45,30 +46,31 @@ public class LevelScreenController implements Initializable {
             }
         }
         
-       for (Button button : buttons) {
-    button.setOnAction(e -> {
-        try {
-            // 1. Switch the main window to the GameScreen
-            javafx.fxml.FXMLLoader loader = App.setRootAndGetLoader("GameScreen");
+        for (Button button : buttons) {
+            button.setOnAction(e -> {
+             try {
+                
+                FXMLLoader loader = App.setRoot("GameScreen");
+                
+                GameScreenController gameController = loader.getController();
+                
+                String levelFile = "/com/mycompany/shotmasterfxml/" + 
+                        button.getText().toLowerCase().replace(" ", "") + ".fxml";
+                
+                gameController.loadSubScene(levelFile);
+                
+             } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
             
-            // 2. Grab the GameScreen's controller
-            GameScreenController gameController = loader.getController();
-            
-            // 3. Figure out which level file to load based on the button text 
-            // (e.g., button text "Level 1" turns into "/com/mycompany/shotmasterfxml/level1.fxml")
-            String levelName = button.getText().toLowerCase().replace(" ", "");
-            String levelFile = "/com/mycompany/shotmasterfxml/" + levelName + ".fxml";
-            
-            // 4. Load that level inside the GameScreen
-            gameController.loadSubScene(levelFile);
-            
-        } catch (java.io.IOException ex) {
-            ex.printStackTrace();
-        }
-    });
-}
+            });
             
         }
         
     }
 
+    @FXML
+        private void onBackButtonPressed(ActionEvent event) throws IOException {
+        App.setRoot("StartScreen");
+    }
+}

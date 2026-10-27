@@ -13,7 +13,8 @@ import javafx.scene.layout.VBox;
 public class Score {
     
     int goalCount = 0;
-    VBox goalStats = new VBox();
+
+    
     
    
     
