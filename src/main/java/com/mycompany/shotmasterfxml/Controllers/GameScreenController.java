@@ -119,6 +119,4 @@ public class GameScreenController {
     public TextField getAngleTextField() {
         return angleTextField;
     }
-    
-    
 }
