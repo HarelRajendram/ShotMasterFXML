@@ -59,4 +59,7 @@ public class GameScreenController {
     @FXML
     private void onStartButtonPressed(ActionEvent event) {
     }
+    @FXML
+private void onShootClicked(MouseEvent event) {
+}
 }

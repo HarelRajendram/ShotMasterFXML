@@ -8,6 +8,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <BorderPane fx:id="mainContainer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="725.0" prefWidth="1138.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.shotmasterfxml.Controllers.GameScreenController">
    <bottom>
@@ -31,10 +32,13 @@
                   <TextField fx:id="angleTextField" prefHeight="32.0" prefWidth="75.0" translateY="28.0" />
                </children>
             </VBox>
-            <Button fx:id="startButton" mnemonicParsing="false" onAction="#onStartButtonPressed" scaleX="2.0" scaleY="2.0" text="START" translateX="600.0" translateY="50.0">
+            <Button fx:id="startButton" mnemonicParsing="false" onAction="#onStartButtonPressed" onMouseClicked="#onShootClicked" scaleX="2.0" scaleY="2.0" text="SHOOT!" translateX="600.0" translateY="50.0">
                <HBox.margin>
                   <Insets />
                </HBox.margin>
+               <font>
+                  <Font name="AdobeArabic-Regular" size="13.0" />
+               </font>
             </Button>
          </children>
       </HBox>
