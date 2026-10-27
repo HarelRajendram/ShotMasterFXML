@@ -27,7 +27,7 @@ public class Physics {
     
     public static double getMaxHeight(double velocity, double angleInDegrees) {
         double angleInRadians = Math.toRadians(angleInDegrees);
-        double height = ((Math.pow(velocity, 2)) * (Math.pow(Math.sin(angleInRadians), 2))) / 9.81;
+        double height = ((Math.pow(velocity, 2)) * (Math.pow(Math.sin(angleInRadians), 2))) / (2 * 9.81);
         return height;
     }
 }
