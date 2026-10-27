@@ -2,6 +2,7 @@ package com.mycompany.shotmasterfxml.Controllers;
 
 import com.mycompany.shotmasterfxml.App;
 import com.mycompany.shotmasterfxml.App;
+import com.mycompany.shotmasterfxml.Physics;
 import static com.mycompany.shotmasterfxml.Physics.getTotalDisplacement;
 import java.io.IOException;
 import javafx.event.ActionEvent;
@@ -28,17 +29,27 @@ public class GameScreenController {
     private TextField velocityTextField;
     @FXML
     private TextField angleTextField;
-    @FXML
-    private Button startButton;
+    
+
     @FXML
     private VBox goalStats;
     @FXML
     private Label distanceLabel;
     @FXML
+    private Label timeLabel;
+    @FXML
+    private Label heightLabel;
+    @FXML
+    private Label goalLabel;
+    
+    @FXML
+    private Button startButton;
+    @FXML
     private Button backButton;
 
-    public double angle = 0;
-    public double velocity = 0;
+    private double angle = 0;
+    private double velocity = 0;
+    
     
     public void initialize() {
         
@@ -82,12 +93,32 @@ public class GameScreenController {
 
     @FXML
     private void onStartButtonPressed(ActionEvent event) {
-        distanceLabel.setText(String.valueOf(getTotalDisplacement()));
+        double distance = Physics.getTotalDisplacement(this.velocity, this.angle);
+        
+        distanceLabel.setText(String.format("%.2f", distance));
+        
+        double time = Physics.getTotalTime(this.velocity, this.angle);
+        
+        timeLabel.setText(String.format("%.2f", time));
+        
+        double height = Physics.getMaxHeight(this.velocity, this.angle);
+        
+        heightLabel.setText(String.format("%.2f", height));
     }
+    
 
     @FXML
     private void onBackButtonPressed(ActionEvent event) throws IOException {
-        
         App.setRoot("LevelScreen");
     }
+
+    public TextField getVelocityTextField() {
+        return velocityTextField;
+    }
+
+    public TextField getAngleTextField() {
+        return angleTextField;
+    }
+    
+    
 }

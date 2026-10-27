@@ -12,25 +12,22 @@ import com.mycompany.shotmasterfxml.Controllers.GameScreenController;
  */
 public class Physics {
     
-    public static double getTotalTime() {
-        GameScreenController velocity = new GameScreenController();
-        GameScreenController angle = new GameScreenController();
-        double time = (2 * velocity.velocity * (Math.sin(angle.angle))) / 9.81;
-        
+      
+    public static double getTotalTime(double velocity, double angleInDegrees) {
+        double angleInRadians = Math.toRadians(angleInDegrees);
+        double time = ((2 * velocity) * (Math.sin(angleInRadians))) / 9.81;
         return time;
     }
     
-    public static double getTotalDisplacement() {
-        GameScreenController velocity = new GameScreenController();
-        GameScreenController angle = new GameScreenController();
-        double distance = ((Math.pow(velocity.velocity, 2)) * (Math.sin(angle.angle * 2))) / 9.81;
-        
+    public static double getTotalDisplacement(double velocity, double angleInDegrees) {
+        double angleInRadians = Math.toRadians(angleInDegrees);
+        double distance = ((Math.pow(velocity, 2)) * (Math.sin(angleInRadians * 2))) / 9.81;
         return distance;
     }   
     
-//    public double calculateHeight() {}
-//    
-//    
-//
-    
+    public static double getMaxHeight(double velocity, double angleInDegrees) {
+        double angleInRadians = Math.toRadians(angleInDegrees);
+        double height = ((Math.pow(velocity, 2)) * (Math.pow(Math.sin(angleInRadians), 2))) / 9.81;
+        return height;
+    }
 }
