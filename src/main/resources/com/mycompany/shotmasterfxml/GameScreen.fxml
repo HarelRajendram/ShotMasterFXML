@@ -13,24 +13,9 @@
 <?import javafx.scene.text.Font?>
 
 <BorderPane fx:id="mainContainer" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.shotmasterfxml.Controllers.GameScreenController">
-    <stylesheets>
-        <URL value="@styles/levelscreen.css" />
-    </stylesheets>
     
     <center>
-        <AnchorPane fx:id="gameField" prefHeight="400.0" prefWidth="600.0" BorderPane.alignment="CENTER">
-            <children>
-                <Rectangle arcHeight="5.0" arcWidth="5.0" height="146.0" layoutX="429.0" layoutY="152.0" opacity="0.22" stroke="BLACK" strokeType="INSIDE" width="157.0" />
-                
-                <Circle fx:id="ballSphere" layoutX="67.0" layoutY="268.0" radius="15.0" fill="RED" />
-                
-                <Label layoutX="462.0" layoutY="88.0" prefHeight="50.0" prefWidth="124.0" text="GOAL">
-                    <font>
-                        <Font name="Noteworthy Bold" size="29.0" />
-                    </font>
-                </Label>
-            </children>
-        </AnchorPane>
+                <fx:include fx:id="level1" source="level1.fxml"/>
     </center>
 
     <bottom>

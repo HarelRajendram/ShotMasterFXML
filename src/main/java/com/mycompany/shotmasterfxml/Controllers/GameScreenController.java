@@ -52,7 +52,10 @@ public class GameScreenController {
 
     @FXML
     private AnchorPane gameField;
-
+    
+    @FXML
+    private AnchorPane level1;
+    
     private double angle = 0;
     private double velocity = 0;
     
@@ -166,8 +169,4 @@ public class GameScreenController {
     public TextField getAngleTextField() {
         return angleTextField;
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> origin/HarelBranch

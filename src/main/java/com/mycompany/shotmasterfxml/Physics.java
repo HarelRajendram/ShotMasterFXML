@@ -4,7 +4,6 @@
  */
 package com.mycompany.shotmasterfxml;
 
-import com.mycompany.shotmasterfxml.Controllers.GameScreenController;
 
 /**
  *
