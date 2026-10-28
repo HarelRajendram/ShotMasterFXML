@@ -2,6 +2,7 @@ package com.mycompany.shotmasterfxml.Controllers;
 
 import com.mycompany.shotmasterfxml.App;
 import com.mycompany.shotmasterfxml.Physics;
+import com.mycompany.shotmasterfxml.Score;
 import java.io.IOException;
 import javafx.animation.AnimationTimer;
 import javafx.event.ActionEvent;
@@ -20,6 +21,9 @@ import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
 
 public class GameScreenController {
+    
+    private static final double METERS_TO_PIXELS_SCALE = 8.0; 
+    private static final double GRAVITY = 9.81;
 
     @FXML
     private BorderPane mainContainer;
@@ -42,19 +46,15 @@ public class GameScreenController {
     private Label heightLabel;
     @FXML
     private Label goalLabel;
+    @FXML
+    private Label victoryLabel;
     
     @FXML
     private Button startButton;
     @FXML
     private Button backButton;
-    
 
-    @FXML
-    private AnchorPane gameField;
-    
-    @FXML
-    private AnchorPane level1;
-    
+    private Score score;
     @FXML
     private ImageView ballSphere;
     @FXML
@@ -64,9 +64,11 @@ public class GameScreenController {
     private double velocity = 0;
     
     private AnimationTimer animationTimer;
+   
 
-    @FXML
     public void initialize() {
+        this.score = new Score(this);
+        
         angleSlider.valueProperty().addListener((obs, oldValue, newValue) -> {
             angle = newValue.doubleValue();
         });
@@ -89,7 +91,8 @@ public class GameScreenController {
             
             mainContainer.setCenter(subView); 
             
-            ballSphere = (ImageView) subView.lookup("#ballSphere");        
+            ballSphere = (ImageView) subView.lookup("#ballSphere");  
+            ballSphere1 = (ImageView) subView.lookup("#ballSphere1");
         } catch (IOException e) {
             System.err.println("Error loading sub-FXML file: " + fxmlPath);
             e.printStackTrace();
@@ -97,13 +100,16 @@ public class GameScreenController {
     }
 
     private void animateBall() {
-        double gravity = 9.81;
-        double angleRadians = Math.toRadians(angle);
-
-        double startX = 67;
-        double startY = 268;
-
-        double scale = 8;
+        final double angleRadians = Math.toRadians(angle);
+        
+        final double originalX = 67.0; 
+        final double originalY = 268.0;
+        
+        ballSphere.setLayoutX(originalX);
+        ballSphere.setLayoutY(originalY);
+        
+        double startX = originalX;
+        double startY = originalY;
 
         double initialVelocityX = velocity * Math.cos(angleRadians);
         double initialVelocityY = velocity * Math.sin(angleRadians);
@@ -121,13 +127,15 @@ public class GameScreenController {
 
                 double x = initialVelocityX * elapsedTime;
                 double y = initialVelocityY * elapsedTime
-                        - 0.5 * gravity * elapsedTime * elapsedTime;
+                        - 0.5 * GRAVITY * elapsedTime * elapsedTime;
 
-                double screenX = startX + x * scale;
-                double screenY = startY - y * scale;
+                double screenX = startX + x * METERS_TO_PIXELS_SCALE;
+                double screenY = startY - y * METERS_TO_PIXELS_SCALE;
 
                 ballSphere.setLayoutX(screenX);
                 ballSphere.setLayoutY(screenY);
+                
+                score.isAGoal();
 
                 if (elapsedTime >= Physics.getTotalTime(velocity, angle)) {
                     animationTimer.stop();
@@ -138,11 +146,6 @@ public class GameScreenController {
         animationTimer.start();
     }
 
-    @FXML
-    private void onAngleDrag(MouseEvent event) {}
-
-    @FXML
-    private void onVelocityDrag(MouseEvent event) {}
 
     @FXML
     private void onStartButtonPressed(ActionEvent event) {
@@ -157,8 +160,12 @@ public class GameScreenController {
         
         double height = Physics.getMaxHeight(this.velocity, this.angle);
         heightLabel.setText(String.format("%.2f", height));
-
+        
         animateBall();
+        
+        int goalCount = score.getGoalCount();
+        goalLabel.setText(String.valueOf(goalCount));
+        
     }
 
     @FXML
@@ -172,5 +179,17 @@ public class GameScreenController {
 
     public TextField getAngleTextField() {
         return angleTextField;
+    }
+
+    public ImageView getBallSphere() {
+        return this.ballSphere;
+    }
+
+    public ImageView getBallSphere1() {
+        return this.ballSphere1;
+    }
+    
+    public Label getVictoryLabel() {
+        return victoryLabel;
     }
 }

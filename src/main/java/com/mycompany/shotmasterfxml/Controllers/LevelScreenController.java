@@ -5,7 +5,6 @@
 package com.mycompany.shotmasterfxml.Controllers;
 
 import com.mycompany.shotmasterfxml.App;
-import com.mycompany.shotmasterfxml.App;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;

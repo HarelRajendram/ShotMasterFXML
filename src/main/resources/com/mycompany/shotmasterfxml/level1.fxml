@@ -20,13 +20,13 @@
             <Image url="@610N8G-7q-L._AC_SL3840_.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="ballSphere1" fitHeight="150.0" fitWidth="200.0" layoutX="466.0" layoutY="138.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="ballSphere1" fitHeight="150" fitWidth="150" layoutX="466.0" layoutY="138.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@goku.jpg" />
          </image>
       </ImageView>
       
-      <Label layoutX="482.0" layoutY="88.0" prefHeight="50.0" prefWidth="124.0" text="GOAL">
+      <Label layoutX="482.0" layoutY="88.0" prefHeight="50.0" prefWidth="124.0" text="GOAL" >
          <font>
             <Font name="Noteworthy Bold" size="29.0" />
          </font>
