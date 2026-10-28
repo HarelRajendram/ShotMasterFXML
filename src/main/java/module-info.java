@@ -5,6 +5,7 @@ module com.mycompany.shotmasterfxml {
     
     opens com.mycompany.shotmasterfxml to javafx.fxml;
     opens com.mycompany.shotmasterfxml.Controllers to javafx.fxml; 
+    opens com.mycompany.shotmasterfxml.images to javafx.fxml;
 
     exports com.mycompany.shotmasterfxml;
 }
