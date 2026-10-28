@@ -15,11 +15,11 @@
         <AnchorPane prefHeight="100.0" prefWidth="800.0" BorderPane.alignment="CENTER">
             <children>
                 <Label layoutX="20.0" layoutY="20.0" text="Angle :" />
-                <Slider fx:id="angleSlider" layoutX="70.0" layoutY="21.0" max="90.0" />
+                <Slider fx:id="angleSlider" layoutX="70.0" layoutY="21.0" max="360.0" />
                 <TextField fx:id="angleTextField" layoutX="220.0" layoutY="16.0" prefHeight="26.0" prefWidth="60.0" />
 
                 <Label layoutX="20.0" layoutY="60.0" text="Velocity :" />
-                <Slider fx:id="velocitySlider" layoutX="70.0" layoutY="61.0" max="50.0" />
+                <Slider fx:id="velocitySlider" layoutX="70.0" layoutY="61.0" max="100.0" />
                 <TextField fx:id="velocityTextField" layoutX="220.0" layoutY="56.0" prefHeight="26.0" prefWidth="60.0" />
 
                 <Button fx:id="startButton" layoutX="500.0" layoutY="30.0" mnemonicParsing="false" onAction="#onStartButtonPressed" text="START" />

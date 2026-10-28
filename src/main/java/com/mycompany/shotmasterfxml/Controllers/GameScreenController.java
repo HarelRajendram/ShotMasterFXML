@@ -103,6 +103,9 @@ public class GameScreenController {
     private void animateBall() {
         final double angleRadians = Math.toRadians(angle);
         
+//        double originalX = ballSphere.getLayoutX(); 
+//        double originalY = ballSphere.getLayoutY();
+
         final double originalX = 67.0; 
         final double originalY = 268.0;
         
