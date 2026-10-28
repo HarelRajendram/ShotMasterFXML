@@ -4,8 +4,7 @@ module com.mycompany.shotmasterfxml {
     requires java.base;
     
     opens com.mycompany.shotmasterfxml to javafx.fxml;
-    opens com.mycompany.shotmasterfxml.Controllers to javafx.fxml; 
-    opens com.mycompany.shotmasterfxml.images to javafx.fxml;
+    opens com.mycompany.shotmasterfxml.Controllers to javafx.fxml;  
 
     exports com.mycompany.shotmasterfxml;
 }

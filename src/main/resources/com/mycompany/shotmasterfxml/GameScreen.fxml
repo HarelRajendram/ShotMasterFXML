@@ -7,39 +7,71 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="mainContainer" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.shotmasterfxml.Controllers.GameScreenController">
+<BorderPane fx:id="mainContainer" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #275a34;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.shotmasterfxml.Controllers.GameScreenController">
 
     <bottom>
-        <AnchorPane prefHeight="100.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+        <AnchorPane prefHeight="100.0" prefWidth="800.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
             <children>
-                <Label layoutX="20.0" layoutY="20.0" text="Angle :" />
-                <Slider fx:id="angleSlider" layoutX="70.0" layoutY="21.0" max="360.0" />
-                <TextField fx:id="angleTextField" layoutX="220.0" layoutY="16.0" prefHeight="26.0" prefWidth="60.0" />
+                <Label layoutX="26.0" layoutY="21.0" style="-fx-background-color: white;" text="Angle :" />
+                <Slider fx:id="angleSlider" layoutX="70.0" layoutY="21.0" max="360.0" prefHeight="16.0" prefWidth="200.0" style="-fx-background-color: #1a1e24; -fx-background-radius: 5px; -fx-padding: 0;" />
+                <TextField fx:id="angleTextField" layoutX="280.0" layoutY="17.0" prefHeight="26.0" prefWidth="60.0" />
 
-                <Label layoutX="20.0" layoutY="60.0" text="Velocity :" />
-                <Slider fx:id="velocitySlider" layoutX="70.0" layoutY="61.0" max="100.0" />
-                <TextField fx:id="velocityTextField" layoutX="220.0" layoutY="56.0" prefHeight="26.0" prefWidth="60.0" />
+                <Label layoutX="14.0" layoutY="61.0" text="Velocity :" />
+                <Slider fx:id="velocitySlider" layoutX="70.0" layoutY="61.0" max="100.0" prefHeight="16.0" prefWidth="200.0" style="-fx-background-color: #1a1e24; -fx-background-radius: 5px; -fx-padding: 0;" />
+                <TextField fx:id="velocityTextField" layoutX="280.0" layoutY="56.0" prefHeight="26.0" prefWidth="60.0" />
 
-                <Button fx:id="startButton" layoutX="500.0" layoutY="30.0" mnemonicParsing="false" onAction="#onStartButtonPressed" text="START" />
-                <Button fx:id="backButton" layoutX="320.0" layoutY="30.0" mnemonicParsing="false" onAction="#onBackButtonPressed" text="BACK" />
+               <Button fx:id="startButton" layoutX="603.0" layoutY="20.0" mnemonicParsing="false" onAction="#onStartButtonPressed" prefHeight="45.0" prefWidth="101.0" style="-fx-background-color: #1e90ff; -fx-text-fill: white;" text="SHOOT">
+   <font>
+      <Font name="Noteworthy Bold" size="19.0" />
+   </font>
+</Button>
+                <Button fx:id="backButton" layoutX="498.0" layoutY="30.0" mnemonicParsing="false" onAction="#onBackButtonPressed" style="-fx-background-color: grey; -fx-text-fill: white;" text="BACK" />
             </children>
         </AnchorPane>
     </bottom>
 
     <right>
-        <VBox fx:id="goalStats" alignment="TOP_RIGHT" prefHeight="400.0" prefWidth="150.0" spacing="10.0" style="-fx-padding: 20;" BorderPane.alignment="CENTER">
+        <VBox fx:id="goalStats" prefHeight="332.0" prefWidth="200.0" spacing="10.0" style="-fx-padding: 20; -fx-background-color: white;" BorderPane.alignment="CENTER">
             <children>
-                <Label style="-fx-font-weight: bold; -fx-font-size: 16;" text="Stats" />
-                <Label text="Distance :" />
-                <Label fx:id="distanceLabel" text="0.00" />
-                <Label text="Time :" />
-                <Label fx:id="timeLabel" text="0.00" />
-                <Label text="Height :" />
-                <Label fx:id="heightLabel" text="0.00" />
-                <Label text="Goal :" />
-                <Label fx:id="goalLabel" text="0" />
+                <Label prefHeight="20.0" prefWidth="41.0" style="-fx-font-weight: bold; -fx-font-size: 16;" text="Stats">
+               <font>
+                  <Font name="System Bold" size="23.0" />
+               </font></Label>
+                <Label text="Distance :">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font></Label>
+                <Label fx:id="distanceLabel" text="0.00">
+               <font>
+                  <Font size="17.0" />
+               </font></Label>
+                <Label text="Time :">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font></Label>
+                <Label fx:id="timeLabel" text="0.00">
+               <font>
+                  <Font size="17.0" />
+               </font></Label>
+                <Label text="Height :">
+               <font>
+                  <Font name="System Bold Italic" size="20.0" />
+               </font></Label>
+                <Label fx:id="heightLabel" text="0.00">
+               <font>
+                  <Font size="17.0" />
+               </font></Label>
+                <Label text="Goal :">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font></Label>
+                <Label fx:id="goalLabel" text="0">
+               <font>
+                  <Font size="17.0" />
+               </font></Label>
             </children>
         </VBox>
     </right>
@@ -50,4 +82,7 @@
          </font>
       </Label>
    </top>
+   <left>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="312.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="4.0" width="200.0" BorderPane.alignment="CENTER" />
+   </left>
 </BorderPane>

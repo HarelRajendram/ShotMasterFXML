@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="140.0" layoutX="429.0" layoutY="152.0" opacity="0.22" stroke="BLACK" strokeType="INSIDE" width="157.0" />
+      
+      <Label layoutX="1000" layoutY="88.0" prefHeight="50.0" prefWidth="124.0" text="GOAL">
+         <font>
+            <Font name="Noteworthy Bold" size="29.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="ballSphere" fitHeight="150" fitWidth="200" layoutX="63.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@610N8G-7q-L._AC_SL3840_.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="ballSphere1" fitHeight="400" fitWidth="400" layoutX="1000" layoutY="150" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@goku.jpg" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
