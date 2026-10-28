@@ -21,13 +21,7 @@ public class Score {
     }
     
     public void isAGoal() {
-        System.out.println("Controller reference: " + controller);
     
-        if (controller != null) {
-        System.out.println("Ball Node: " + controller.getBallSphere());
-        System.out.println("Goal Node: " + controller.getBallSphere1());
-        }
-        
         ImageView ball = controller.getBallSphere();
         ImageView goal = controller.getBallSphere1();
         
@@ -43,6 +37,4 @@ public class Score {
     public int getGoalCount() {
         return goalCount;
     }
-    
-    
 }
