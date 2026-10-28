@@ -22,7 +22,7 @@ import javafx.scene.shape.Circle;
 
 public class GameScreenController {
     
-    private static final double METERS_TO_PIXELS_SCALE = 8.0; 
+    private static final double METERS_TO_PIXELS_SCALE = 10; 
     private static final double GRAVITY = 9.81;
 
     @FXML
@@ -93,6 +93,7 @@ public class GameScreenController {
             
             ballSphere = (ImageView) subView.lookup("#ballSphere");  
             ballSphere1 = (ImageView) subView.lookup("#ballSphere1");
+            
         } catch (IOException e) {
             System.err.println("Error loading sub-FXML file: " + fxmlPath);
             e.printStackTrace();
@@ -137,7 +138,7 @@ public class GameScreenController {
                 
                 score.isAGoal();
 
-                if (elapsedTime >= Physics.getTotalTime(velocity, angle)) {
+                if (elapsedTime >= Physics.getTotalTime(velocity, angle) + 1) {
                     animationTimer.stop();
                 }
             }
