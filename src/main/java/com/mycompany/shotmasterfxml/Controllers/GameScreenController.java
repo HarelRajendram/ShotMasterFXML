@@ -141,7 +141,7 @@ public class GameScreenController {
                 
                 score.isAGoal();
 
-                if (elapsedTime >= Physics.getTotalTime(velocity, angle) + 1) {
+                if (elapsedTime >= Physics.getTotalTime(velocity, angle)) {
                     animationTimer.stop();
                 }
             }

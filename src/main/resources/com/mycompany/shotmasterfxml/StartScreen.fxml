@@ -2,29 +2,33 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.effect.InnerShadow?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="titleVbox" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" spacing="20.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.shotmasterfxml.Controllers.StartScreenController">
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label fx:id="titleLabel" alignment="BOTTOM_CENTER" contentDisplay="CENTER" prefHeight="56.0" prefWidth="256.0" text="ShotMaster" textFill="#27f56d">
+      <ImageView fitHeight="627.0" fitWidth="616.0" layoutX="-8.0" layoutY="-216.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@soccerField.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="titleLabel" layoutX="126.0" layoutY="48.0" text="SHOT     MASTER" textFill="WHITE">
          <font>
-            <Font name="Comic Sans MS Bold" size="34.0" />
+            <Font name="Noteworthy Bold" size="52.0" />
          </font>
       </Label>
-      <Label fx:id="subTitleLabel" prefHeight="26.0" prefWidth="310.0" text="Test your aim and become the best shooter">
+      <Label fx:id="subTitleLabel" layoutX="126.0" layoutY="136.0" prefHeight="65.0" prefWidth="432.0" text="Become the         best shooter" textFill="WHITE">
          <font>
-            <Font name="Comic Sans MS" size="15.0" />
+            <Font name="Noteworthy Bold" size="31.0" />
          </font>
       </Label>
-      <Button id="PlayButton" fx:id="playButton" mnemonicParsing="false" onAction="#onPlayButtonPressed" prefHeight="42.0" prefWidth="107.0" text="Play">
+      <Button fx:id="playButton" layoutX="228.0" layoutY="201.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="145.0" style="-fx-background-color: #d3d3d3; -fx-background-radius: 20px;" text="PLAY">
          <font>
-            <Font name="Trebuchet MS Bold" size="20.0" />
+            <Font name="System Bold Italic" size="28.0" />
          </font>
       </Button>
    </children>
-   <effect>
-      <InnerShadow height="68.17" radius="60.114999999999995" width="174.29" />
-   </effect>
-</VBox>
+</AnchorPane>
