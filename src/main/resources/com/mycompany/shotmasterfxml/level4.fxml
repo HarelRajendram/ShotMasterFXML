@@ -19,7 +19,7 @@
             <Image url="@soccerBall.jpeg" />
          </image>
       </ImageView>
-      <ImageView fx:id="ballSphere1" fitHeight="202.0" fitWidth="340.0" layoutX="1060.0" layoutY="150" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="soccerNet" fitHeight="202.0" fitWidth="340.0" layoutX="1060.0" layoutY="150" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@soccerNet.jpg" />
          </image>
