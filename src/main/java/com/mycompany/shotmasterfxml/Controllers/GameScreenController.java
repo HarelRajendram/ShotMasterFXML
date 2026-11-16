@@ -117,8 +117,7 @@ public class GameScreenController {
         ballSphere.setLayoutX(initialBallX);
         ballSphere.setLayoutY(initialBallY);
         
-        double startX = initialBallX;
-        double startY = initialBallY;
+        
 
         double initialVelocityX = velocity * Math.cos(angleRadians);
         double initialVelocityY = velocity * Math.sin(angleRadians);
@@ -151,8 +150,8 @@ public class GameScreenController {
                 double y = initialVelocityY * elapsedTime
                         - 0.5 * GRAVITY * elapsedTime * elapsedTime;
 
-                double screenX = startX + x * METERS_TO_PIXELS_SCALE;
-                double screenY = startY - y * METERS_TO_PIXELS_SCALE;
+                double screenX = initialBallX + x * METERS_TO_PIXELS_SCALE;
+                double screenY = initialBallY - y * METERS_TO_PIXELS_SCALE;
 
                 ballSphere.setLayoutX(screenX);
                 ballSphere.setLayoutY(screenY);
@@ -162,7 +161,8 @@ public class GameScreenController {
                 }
 
                 double ballWidth = ballSphere.getFitWidth();
-                if (screenX + ballWidth >= 1920) {
+                double ballHeight = ballSphere.getFitHeight();
+                if (screenX + ballWidth >= 1920 || screenX <= 0 || screenY <= -500 || screenY + ballHeight >= 1080) {
                     animationTimer.stop();
                 }
             }
