@@ -65,6 +65,10 @@ public class GameScreenController {
     private double angle = 0;
     private double velocity = 0;
     
+    private double initialBallX;
+    private double initialBallY;
+            
+    
     private AnimationTimer animationTimer;
    
 
@@ -96,6 +100,11 @@ public class GameScreenController {
             ballSphere = (ImageView) subView.lookup("#ballSphere");  
             soccerNet = (ImageView) subView.lookup("#soccerNet");
             
+            initialBallX = ballSphere.getLayoutX();
+            initialBallY = ballSphere.getLayoutY();
+            
+            
+           
         } catch (IOException e) {
             System.err.println("Error loading sub-FXML file: " + fxmlPath);
             e.printStackTrace();
@@ -105,17 +114,11 @@ public class GameScreenController {
     private void animateBall() {
         final double angleRadians = Math.toRadians(angle);
         
-//        double originalX = ballSphere.getLayoutX(); 
-//        double originalY = ballSphere.getLayoutY();
-
-        final double originalX = ballSphere.getLayoutX();
-        final double originalY = ballSphere.getLayoutY();
+        ballSphere.setLayoutX(initialBallX);
+        ballSphere.setLayoutY(initialBallY);
         
-        ballSphere.setLayoutX(originalX);
-        ballSphere.setLayoutY(originalY);
-        
-        double startX = originalX;
-        double startY = originalY;
+        double startX = initialBallX;
+        double startY = initialBallY;
 
         double initialVelocityX = velocity * Math.cos(angleRadians);
         double initialVelocityY = velocity * Math.sin(angleRadians);
@@ -135,8 +138,6 @@ public class GameScreenController {
         ballSphere.setEffect(motionblur);
         
         
-        
-
         if (animationTimer != null) {
             animationTimer.stop();
         }
@@ -161,10 +162,18 @@ public class GameScreenController {
                 if (elapsedTime >= Physics.getTotalTime(velocity, angle)) {
                     animationTimer.stop();
                 }
+                
+                double ballWidth = ballSphere.getBoundsInLocal().getWidth();
+                double ballHeight = ballSphere.getBoundsInLocal().getHeight();
+
+                if (screenX + ballWidth >= 600 || screenX <= 0 || screenY <= 100 || screenY + ballHeight >= 500) {
+                 animationTimer.stop();
+                }
             }
         };
-
-        animationTimer.start();
+        
+            animationTimer.start();
+        
     }
 
 

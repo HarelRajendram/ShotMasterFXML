@@ -10,7 +10,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="mainContainer" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #275a34;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.shotmasterfxml.Controllers.GameScreenController">
+<BorderPane fx:id="mainContainer" maxHeight="500.0" maxWidth="800.0" style="-fx-background-color: #275a34;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.shotmasterfxml.Controllers.GameScreenController">
 
     <bottom>
         <AnchorPane prefHeight="100.0" prefWidth="800.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
@@ -76,13 +76,10 @@
         </VBox>
     </right>
    <top>
-      <Label fx:id="victoryLabel" BorderPane.alignment="CENTER">
-         <font>
-            <Font size="74.0" />
-         </font>
-      </Label>
-   </top>
-   <left>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="312.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="4.0" width="200.0" BorderPane.alignment="CENTER" />
-   </left>
+   <Label fx:id="victoryLabel" managed="false" visible="false" BorderPane.alignment="CENTER">
+      <font>
+         <Font size="74.0" />
+      </font>
+   </Label>
+</top>
 </BorderPane>

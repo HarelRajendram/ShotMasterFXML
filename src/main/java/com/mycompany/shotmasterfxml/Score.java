@@ -15,6 +15,7 @@ public class Score {
     
     private int goalCount = 0;
     private GameScreenController controller;
+    private boolean hasScored = false;
 
     public Score(GameScreenController controller) {
         this.controller = controller;
@@ -27,9 +28,17 @@ public class Score {
         
         if (ball != null && goal != null) {
             if (ball.getBoundsInParent().intersects(goal.getBoundsInParent())) {
-                goalCount++;
-                controller.getVictoryLabel().setText("YOU WIN!!!!!");
+                if (!hasScored) {
+                    goalCount++;
+                    hasScored = true;
+                    controller.getVictoryLabel().setText("YOU WIN!!!!!");
+                }
+                
+            } else {
+                hasScored = false;
+                controller.getVictoryLabel().setText("");
             }
+            
         }
        
     }
