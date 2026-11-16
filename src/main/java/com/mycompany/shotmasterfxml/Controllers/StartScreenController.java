@@ -10,8 +10,7 @@ import javafx.scene.layout.VBox;
 
 public class StartScreenController {
 
-    @FXML
-    private VBox titleVbox;
+    
     @FXML
     private Label titleLabel;
     @FXML

@@ -13,6 +13,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.effect.MotionBlur;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -58,7 +60,7 @@ public class GameScreenController {
     @FXML
     private ImageView ballSphere;
     @FXML
-    private ImageView ballSphere1;
+    private ImageView soccerNet;
     
     private double angle = 0;
     private double velocity = 0;
@@ -92,7 +94,7 @@ public class GameScreenController {
             mainContainer.setCenter(subView); 
             
             ballSphere = (ImageView) subView.lookup("#ballSphere");  
-            ballSphere1 = (ImageView) subView.lookup("#ballSphere1");
+            soccerNet = (ImageView) subView.lookup("#soccerNet");
             
         } catch (IOException e) {
             System.err.println("Error loading sub-FXML file: " + fxmlPath);
@@ -106,8 +108,8 @@ public class GameScreenController {
 //        double originalX = ballSphere.getLayoutX(); 
 //        double originalY = ballSphere.getLayoutY();
 
-        final double originalX = 67.0; 
-        final double originalY = 268.0;
+        final double originalX = ballSphere.getLayoutX();
+        final double originalY = ballSphere.getLayoutY();
         
         ballSphere.setLayoutX(originalX);
         ballSphere.setLayoutY(originalY);
@@ -119,6 +121,21 @@ public class GameScreenController {
         double initialVelocityY = velocity * Math.sin(angleRadians);
 
         long startTime = System.nanoTime();
+        
+        DropShadow dropShadow = new DropShadow();
+        dropShadow.setOffsetX(-10);
+        dropShadow.setOffsetY(10);
+        
+        MotionBlur motionblur = new MotionBlur();
+        motionblur.setRadius(10.0); 
+        motionblur.setAngle(45.0);
+        
+        motionblur.setInput(dropShadow);
+        
+        ballSphere.setEffect(motionblur);
+        
+        
+        
 
         if (animationTimer != null) {
             animationTimer.stop();
@@ -141,7 +158,7 @@ public class GameScreenController {
                 
                 score.isAGoal();
 
-                if (elapsedTime >= Physics.getTotalTime(velocity, angle) + 1) {
+                if (elapsedTime >= Physics.getTotalTime(velocity, angle)) {
                     animationTimer.stop();
                 }
             }
@@ -190,7 +207,7 @@ public class GameScreenController {
     }
 
     public ImageView getBallSphere1() {
-        return this.ballSphere1;
+        return this.soccerNet;
     }
     
     public Label getVictoryLabel() {
