@@ -10,13 +10,13 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="mainContainer" maxHeight="500.0" maxWidth="800.0" style="-fx-background-color: #275a34;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.shotmasterfxml.Controllers.GameScreenController">
+<BorderPane fx:id="mainContainer" maxHeight="500.0" maxWidth="800.0" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #275a34;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.shotmasterfxml.Controllers.GameScreenController">
 
     <bottom>
         <AnchorPane prefHeight="100.0" prefWidth="800.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
             <children>
                 <Label layoutX="26.0" layoutY="21.0" style="-fx-background-color: white;" text="Angle :" />
-                <Slider fx:id="angleSlider" layoutX="70.0" layoutY="21.0" max="180.0" prefHeight="16.0" prefWidth="200.0" style="-fx-background-color: #1a1e24; -fx-background-radius: 5px; -fx-padding: 0;" />
+                <Slider fx:id="angleSlider" layoutX="70.0" layoutY="21.0" max="90.0" prefHeight="16.0" prefWidth="200.0" style="-fx-background-color: #1a1e24; -fx-background-radius: 5px; -fx-padding: 0;" />
                 <TextField fx:id="angleTextField" layoutX="280.0" layoutY="17.0" prefHeight="26.0" prefWidth="60.0" />
 
                 <Label layoutX="14.0" layoutY="61.0" text="Velocity :" />
@@ -24,17 +24,17 @@
                 <TextField fx:id="velocityTextField" layoutX="280.0" layoutY="56.0" prefHeight="26.0" prefWidth="60.0" />
 
                <Button fx:id="startButton" layoutX="603.0" layoutY="20.0" mnemonicParsing="false" onAction="#onStartButtonPressed" prefHeight="45.0" prefWidth="101.0" style="-fx-background-color: #1e90ff; -fx-text-fill: white;" text="SHOOT">
-   <font>
-      <Font name="Noteworthy Bold" size="19.0" />
-   </font>
-</Button>
+                <font>
+                    <Font name="Noteworthy Bold" size="19.0" />
+                </font>
+            </Button>
                 <Button fx:id="backButton" layoutX="498.0" layoutY="30.0" mnemonicParsing="false" onAction="#onBackButtonPressed" style="-fx-background-color: grey; -fx-text-fill: white;" text="BACK" />
             </children>
         </AnchorPane>
     </bottom>
 
     <right>
-        <VBox fx:id="goalStats" prefHeight="332.0" prefWidth="200.0" spacing="10.0" style="-fx-padding: 20; -fx-background-color: white;" BorderPane.alignment="CENTER">
+        <VBox fx:id="goalStats" prefHeight="400.0" prefWidth="200.0" spacing="10.0" style="-fx-padding: 20; -fx-background-color: white;" BorderPane.alignment="CENTER">
             <children>
                 <Label prefHeight="20.0" prefWidth="41.0" style="-fx-font-weight: bold; -fx-font-size: 16;" text="Stats">
                <font>
@@ -76,7 +76,7 @@
         </VBox>
     </right>
    <top>
-   <Label fx:id="victoryLabel" managed="false" visible="false" BorderPane.alignment="CENTER">
+   <Label fx:id="victoryLabel" visible="false" BorderPane.alignment="CENTER">
       <font>
          <Font size="74.0" />
       </font>

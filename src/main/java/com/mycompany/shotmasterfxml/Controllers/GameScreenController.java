@@ -157,28 +157,25 @@ public class GameScreenController {
                 ballSphere.setLayoutX(screenX);
                 ballSphere.setLayoutY(screenY);
                 
-                score.isAGoal();
-
-                if (elapsedTime >= Physics.getTotalTime(velocity, angle)) {
+                if (score.isAGoal()) {
                     animationTimer.stop();
                 }
-                
-                double ballWidth = ballSphere.getBoundsInLocal().getWidth();
-                double ballHeight = ballSphere.getBoundsInLocal().getHeight();
 
-                if (screenX + ballWidth >= 600 || screenX <= 0 || screenY <= 100 || screenY + ballHeight >= 500) {
-                 animationTimer.stop();
+                double ballWidth = ballSphere.getFitWidth();
+                if (screenX + ballWidth >= 1920) {
+                    animationTimer.stop();
                 }
             }
         };
         
-            animationTimer.start();
-        
+        animationTimer.start();
     }
 
 
     @FXML
     private void onStartButtonPressed(ActionEvent event) {
+        score.resetShot();
+        
         System.out.println("Angle = " + angle);
         System.out.println("Velocity = " + velocity);
 
@@ -193,9 +190,11 @@ public class GameScreenController {
         
         animateBall();
         
-        int goalCount = score.getGoalCount();
-        goalLabel.setText(String.valueOf(goalCount));
-        
+    }
+    
+        public void updateGoalLabel(int count) {
+            
+            goalLabel.setText(String.valueOf(count));
     }
 
     @FXML

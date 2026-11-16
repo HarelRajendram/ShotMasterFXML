@@ -21,7 +21,7 @@ public class Score {
         this.controller = controller;
     }
     
-    public void isAGoal() {
+    public boolean isAGoal() {
     
         ImageView ball = controller.getBallSphere();
         ImageView goal = controller.getBallSphere1();
@@ -31,16 +31,23 @@ public class Score {
                 if (!hasScored) {
                     goalCount++;
                     hasScored = true;
+                    
                     controller.getVictoryLabel().setText("YOU WIN!!!!!");
+                    controller.getVictoryLabel().setVisible(true);
+                    
+                    controller.updateGoalLabel(goalCount);
                 }
-                
-            } else {
-                hasScored = false;
-                controller.getVictoryLabel().setText("");
+                return true;
             }
-            
         }
-       
+        return false;
+        
+    }
+
+    public void resetShot() {
+        hasScored = false;
+        controller.getVictoryLabel().setText("");
+        controller.getVictoryLabel().setVisible(false);
     }
 
     public int getGoalCount() {
