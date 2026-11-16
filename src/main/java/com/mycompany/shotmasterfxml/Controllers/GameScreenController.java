@@ -94,7 +94,7 @@ public class GameScreenController {
             mainContainer.setCenter(subView); 
             
             ballSphere = (ImageView) subView.lookup("#ballSphere");  
-            soccerNet = (ImageView) subView.lookup("#ballSphere1");
+            soccerNet = (ImageView) subView.lookup("#soccerNet");
             
         } catch (IOException e) {
             System.err.println("Error loading sub-FXML file: " + fxmlPath);
@@ -108,8 +108,8 @@ public class GameScreenController {
 //        double originalX = ballSphere.getLayoutX(); 
 //        double originalY = ballSphere.getLayoutY();
 
-        final double originalX = 67.0; 
-        final double originalY = 268.0;
+        final double originalX = ballSphere.getLayoutX();
+        final double originalY = ballSphere.getLayoutY();
         
         ballSphere.setLayoutX(originalX);
         ballSphere.setLayoutY(originalY);
