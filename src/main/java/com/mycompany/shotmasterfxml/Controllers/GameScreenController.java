@@ -26,6 +26,9 @@ public class GameScreenController {
     
     private static final double METERS_TO_PIXELS_SCALE = 10; 
     private static final double GRAVITY = 9.81;
+    
+    private double levelWidth = 800;
+    private double levelHeight = 400;
 
     @FXML
     private BorderPane mainContainer;
@@ -83,7 +86,7 @@ public class GameScreenController {
         velocitySlider.valueProperty().addListener((obs, oldValue, newValue) -> {
             velocity = newValue.doubleValue();
             
-            if (velocity == 0) {
+            if (velocity == 0 && animationTimer != null ) {
                 animationTimer.stop();
             
             }
@@ -101,10 +104,20 @@ public class GameScreenController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
             Parent subView = loader.load();
             
+            levelWidth = subView.prefWidth(-1);
+            levelHeight = subView.prefHeight(-1);
+            
             mainContainer.setCenter(subView); 
             
             ballSphere = (ImageView) subView.lookup("#ballSphere");  
             soccerNet = (ImageView) subView.lookup("#soccerNet");
+            
+             DropShadow dropShadow = new DropShadow();
+        dropShadow.setOffsetX(-10);
+        dropShadow.setOffsetY(10);
+        
+        ballSphere.setEffect(dropShadow);
+        
             
             initialBallX = ballSphere.getLayoutX();
             initialBallY = ballSphere.getLayoutY();
@@ -132,13 +145,12 @@ public class GameScreenController {
         DropShadow dropShadow = new DropShadow();
         dropShadow.setOffsetX(-10);
         dropShadow.setOffsetY(10);
-        
+
         MotionBlur motionblur = new MotionBlur();
-        motionblur.setRadius(10.0); 
+        motionblur.setRadius(10.0);
         motionblur.setAngle(45.0);
-        
         motionblur.setInput(dropShadow);
-        
+
         ballSphere.setEffect(motionblur);
         
         
@@ -162,12 +174,13 @@ public class GameScreenController {
                 ballSphere.setLayoutY(screenY);
                 
                 if (score.isAGoal()) {
+                    ballSphere.setEffect(dropShadow);
                     animationTimer.stop();
                 }
 
                 double ballWidth = ballSphere.getFitWidth();
                 double ballHeight = ballSphere.getFitHeight();
-                if (screenX + ballWidth >= 1920 || screenX <= 0 || screenY <= -500 || screenY + ballHeight >= 1080) {
+                if (screenX >= levelWidth + 50 || screenX <= 0 || screenY <= -500 || screenY >= levelHeight + 80) {
                     animationTimer.stop();
                 }
             }
@@ -193,6 +206,8 @@ public class GameScreenController {
         heightLabel.setText(String.format("%.2f", height));
         
         animateBall();
+        startButton.setDisable(true);
+        
         
     }
     
@@ -203,20 +218,34 @@ public class GameScreenController {
 
     @FXML
     private void onBackButtonPressed(ActionEvent event) throws IOException {
+        if (animationTimer != null) {
+            animationTimer.stop();
+        }
         App.setRoot("LevelScreen");
     }
     @FXML
     private void onResetButtonPressed(ActionEvent event) throws IOException {
+        distanceLabel.setText("0.00");
+        timeLabel.setText("0.00");
+        heightLabel.setText("0.00");
+        
+        
         if (animationTimer != null) {
             animationTimer.stop();
         }
         
         score.resetShot();
         
-         ballSphere.setEffect(null);
-        
+        DropShadow dropShadow = new DropShadow();
+        dropShadow.setOffsetX(-10);
+        dropShadow.setOffsetY(10);
+
+        ballSphere.setEffect(dropShadow);
+
         ballSphere.setLayoutX(initialBallX);
         ballSphere.setLayoutY(initialBallY);
+        
+        startButton.setDisable(false);
     }
 
     public TextField getVelocityTextField() {
