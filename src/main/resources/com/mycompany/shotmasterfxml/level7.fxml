@@ -6,22 +6,22 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="400.0" maxWidth="600.0" minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="700.0" maxWidth="1459.0" minHeight="400.0" minWidth="600.0" prefHeight="700.0" prefWidth="1459.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       
-      <Label layoutX="1000" layoutY="88.0" prefHeight="50.0" prefWidth="124.0" text="GOAL">
+      <Label layoutX="921.0" layoutY="240.0" prefHeight="50.0" prefWidth="124.0" text="GOAL">
          <font>
             <Font name="Noteworthy Bold" size="29.0" />
          </font>
       </Label>
-      <ImageView fx:id="ballSphere" fitHeight="150" fitWidth="200" layoutX="63.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="ballSphere" fitHeight="84.0" fitWidth="87.0" layoutX="105.0" layoutY="295.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@soccerBall.jpeg" />
+            <Image url="@soccccer_ball-removebg-preview.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="soccerNet" fitHeight="400" fitWidth="400" layoutX="1000" layoutY="150" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="soccerNet" fitHeight="202.0" fitWidth="318.0" layoutX="739.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@soccerNet.jpg" />
+            <Image url="@images-removebg-preview.png" />
          </image>
       </ImageView>
    </children>

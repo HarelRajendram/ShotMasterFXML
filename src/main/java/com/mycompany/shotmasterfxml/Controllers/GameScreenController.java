@@ -75,12 +75,18 @@ public class GameScreenController {
     public void initialize() {
         this.score = new Score(this);
         
+        
         angleSlider.valueProperty().addListener((obs, oldValue, newValue) -> {
             angle = newValue.doubleValue();
         });
         
         velocitySlider.valueProperty().addListener((obs, oldValue, newValue) -> {
             velocity = newValue.doubleValue();
+            
+            if (velocity == 0) {
+                animationTimer.stop();
+            
+            }
         });
         
         angleTextField.textProperty().bind(angleSlider.valueProperty().asString("%.2f"));
@@ -116,7 +122,6 @@ public class GameScreenController {
         
         ballSphere.setLayoutX(initialBallX);
         ballSphere.setLayoutY(initialBallY);
-        
         
 
         double initialVelocityX = velocity * Math.cos(angleRadians);
@@ -171,7 +176,6 @@ public class GameScreenController {
         animationTimer.start();
     }
 
-
     @FXML
     private void onStartButtonPressed(ActionEvent event) {
         score.resetShot();
@@ -200,6 +204,19 @@ public class GameScreenController {
     @FXML
     private void onBackButtonPressed(ActionEvent event) throws IOException {
         App.setRoot("LevelScreen");
+    }
+    @FXML
+    private void onResetButtonPressed(ActionEvent event) throws IOException {
+        if (animationTimer != null) {
+            animationTimer.stop();
+        }
+        
+        score.resetShot();
+        
+         ballSphere.setEffect(null);
+        
+        ballSphere.setLayoutX(initialBallX);
+        ballSphere.setLayoutY(initialBallY);
     }
 
     public TextField getVelocityTextField() {
