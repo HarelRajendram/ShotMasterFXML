@@ -1,6 +1,7 @@
 module com.mycompany.shotmasterfxml {
     requires javafx.controls;
     requires javafx.fxml;
+    requires javafx.media;
     requires java.base;
     
     opens com.mycompany.shotmasterfxml to javafx.fxml;

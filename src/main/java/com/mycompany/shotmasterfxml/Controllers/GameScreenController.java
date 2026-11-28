@@ -21,6 +21,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
@@ -32,6 +34,8 @@ public class GameScreenController {
     
     private double levelWidth = 800;
     private double levelHeight = 400;
+    
+    private MediaPlayer bgMusicPlayer;
 
     @FXML
     private BorderPane mainContainer;
@@ -137,7 +141,7 @@ public class GameScreenController {
                 pane.getChildren().add(aimLine);
                 updateAimLine();
             }
-            
+            playBackgroundMusic("/com/mycompany/shotmasterfxml/bgm.mp3");            
             
            
         } catch (IOException e) {
@@ -309,4 +313,23 @@ public class GameScreenController {
     aimLine.setEndX(centerX + length * Math.cos(radians));
     aimLine.setEndY(HeightY + length * Math.sin(radians));
     }
+    private void playBackgroundMusic(String resourcePath) {
+    if (bgMusicPlayer != null) {
+        bgMusicPlayer.stop();
+        bgMusicPlayer.dispose();
+        bgMusicPlayer = null;
+    }
+
+    var url = getClass().getResource(resourcePath);
+    if (url == null) {
+        System.out.println("Could not find audio file: " + resourcePath);
+        return;
+    }
+
+    Media media = new Media(url.toExternalForm());
+    bgMusicPlayer = new MediaPlayer(media);
+    bgMusicPlayer.setCycleCount(MediaPlayer.INDEFINITE); 
+    bgMusicPlayer.setVolume(0.35);
+    bgMusicPlayer.play();
+}
 }
