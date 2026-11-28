@@ -19,8 +19,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Line;
 
 public class GameScreenController {
     
@@ -70,6 +73,8 @@ public class GameScreenController {
     
     private double initialBallX;
     private double initialBallY;
+    
+    private Line aimLine;
             
     
     private AnimationTimer animationTimer;
@@ -81,6 +86,7 @@ public class GameScreenController {
         
         angleSlider.valueProperty().addListener((obs, oldValue, newValue) -> {
             angle = newValue.doubleValue();
+            updateAimLine();
         });
         
         velocitySlider.valueProperty().addListener((obs, oldValue, newValue) -> {
@@ -121,6 +127,16 @@ public class GameScreenController {
             
             initialBallX = ballSphere.getLayoutX();
             initialBallY = ballSphere.getLayoutY();
+            
+            if (subView instanceof Pane) {
+                Pane pane = (Pane) subView;
+                aimLine = new Line();
+                aimLine.setStrokeWidth(3.0);
+                aimLine.setStroke(Color.web("#38bdf8"));
+                aimLine.setMouseTransparent(true);
+                pane.getChildren().add(aimLine);
+                updateAimLine();
+            }
             
             
            
@@ -207,7 +223,9 @@ public class GameScreenController {
         
         animateBall();
         startButton.setDisable(true);
-        
+        if(aimLine != null) {
+            aimLine.setVisible(false);
+        }
         
     }
     
@@ -245,6 +263,11 @@ public class GameScreenController {
         ballSphere.setLayoutX(initialBallX);
         ballSphere.setLayoutY(initialBallY);
         
+        if(aimLine != null) {
+            aimLine.setVisible(true);
+            updateAimLine();
+        }
+        
         startButton.setDisable(false);
     }
 
@@ -266,5 +289,24 @@ public class GameScreenController {
     
     public Label getVictoryLabel() {
         return victoryLabel;
+    }
+    private void updateAimLine() {
+    if (aimLine == null || ballSphere == null) {
+        return;
+    }
+    double ballWidth = ballSphere.getFitWidth();
+    double ballHeight = ballSphere.getFitHeight();
+    
+    double centerX = initialBallX + ballWidth / 2;
+    double HeightY = initialBallY + ballHeight / 2;
+    double length = 40.0;
+    
+    double radians = Math.toRadians(-angle);
+    
+    aimLine.setStartX(centerX);
+    aimLine.setStartY(HeightY);
+    
+    aimLine.setEndX(centerX + length * Math.cos(radians));
+    aimLine.setEndY(HeightY + length * Math.sin(radians));
     }
 }
